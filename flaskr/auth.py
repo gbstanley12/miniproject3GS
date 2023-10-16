@@ -24,6 +24,8 @@ def load_logged_in_user():
             'SELECT * FROM user WHERE id = ?', (user_id,)
         ).fetchone()
 
+    g.current_user = g.user
+
 @bp.route('/login', methods=('GET', 'POST'))
 def login():
     if request.method == 'POST':

@@ -2,6 +2,7 @@ from flask import Blueprint, flash, g, redirect, render_template, request, url_f
 from werkzeug.exceptions import abort
 from .auth import login_required
 from .db import get_db
+from . import blog
 
 bp = Blueprint('blog', __name__)
 
@@ -18,6 +19,9 @@ def index():
 @bp.route('/create', methods=('GET', 'POST'))
 @login_required
 def create():
+    title = ''
+    body = ''
+
     if request.method == 'POST':
         title = request.form['title']
         body = request.form['body']
@@ -25,6 +29,8 @@ def create():
 
         if not title:
             error = 'Title is required.'
+        elif not body:
+            error = 'Body is required.'
 
         if error is not None:
             flash(error)
