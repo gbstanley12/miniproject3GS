@@ -171,3 +171,47 @@ input[type=submit] {
 input[type=submit]:hover {
   background-color: #C60C30; /* Patriots red */
 }
+/* Reset some default table styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif; /* A modern font */
+    margin: 20px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Header styles */
+thead {
+    background-color: #0C2340; /* Patriots navy blue */
+}
+
+thead th {
+    color: white; /* White text for headers */
+    padding: 12px 15px;
+    border-bottom: 3px solid red; /* Red bottom border for headers */
+    text-align: left;
+}
+
+/* Row styles */
+tbody tr {
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+tbody tr:hover {
+    background-color: rgba(0, 0, 255, 0.1); /* Slight blue background on hover */
+}
+
+tbody td {
+    padding: 10px 15px;
+    border-bottom: 1px solid #ddd; /* Light gray border between rows */
+}
+
+/* Remove the bottom border from the last row to keep it clean */
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Add a Patriots red color on hover for better interactivity */
+tbody tr:hover td {
+    color: red;
+}
