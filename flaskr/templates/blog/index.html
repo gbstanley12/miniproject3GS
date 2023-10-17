@@ -2,5 +2,29 @@
 
 {% block content %}
 <h1>Blog Posts</h1>
-<!-- Your blog posts will be displayed here. You can loop through the posts and display them. -->
+<div class="container mt-5">
+    <!-- Create Blog Post Button -->
+    <div class="mb-3">
+        {% if g.user %}
+          <a href="/create" class="btn btn-primary">Create Blog Post</a>
+        {% endif %}
+    </div>
+
+{% for post in posts %}
+  <div class="post">
+    <h2>{{ post['title'] }}</h2>
+    <p>{{ post['body'] }}</p>
+    <p><small>Posted by {{ post['username'] }} on {{ post['created'] }}</small></p>
+
+    <!-- Edit and Delete buttons, but only for the author of the post -->
+    {% if g.user and g.user['id'] == post['author_id'] %}
+      <a href="{{ url_for('blog.edit', id=post['id']) }}" class="btn btn-secondary">Edit</a>
+
+      <form action="{{ url_for('blog.delete', id=post['id']) }}" method="post" style="display: inline;">
+          <button type="submit" class="btn btn-danger">Delete</button>
+      </form>
+    {% endif %}
+  </div>
+{% endfor %}
+
 {% endblock %}

@@ -6,17 +6,17 @@
 
 {% block content %}
 <div class="container mt-5">
-
   <!-- Title -->
   <h2 class="mb-4 text-center">Create Blog Post</h2>
 
   <!-- Form -->
   <div class="d-flex flex-column align-items-center">
-    <input type="text" class="form-control mb-3" style="width: 60%;" placeholder="Title">
-    <textarea class="form-control mb-3" rows="5" style="width: 60%;" placeholder="Body"></textarea>
-    <button class="btn btn-primary">Save</button>
+    <form action="{{ url_for('blog.create') }}" method="post">
+      <input type="text" name="title" class="form-control mb-3" style="width: 100%;" placeholder="Title" value="{{ request.form['title'] }}">
+      <textarea name="body" class="form-control mb-3" rows="5" style="width: 100%;" placeholder="Body">{{ request.form['body'] }}</textarea>
+      <button type="submit" class="btn btn-primary">Post</button>
+    </form>
+
   </div>
-
 </div>
-
 {% endblock %}
