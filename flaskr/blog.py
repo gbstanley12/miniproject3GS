@@ -100,3 +100,7 @@ def get_post(id, check_author=True):
         abort(403, "You do not have permission to edit this post.")
 
     return post
+
+@bp.route('/roster')
+def roster():
+    return render_template('roster.html')
