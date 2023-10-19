@@ -215,3 +215,11 @@ tbody tr:last-child td {
 tbody tr:hover td {
     color: red;
 }
+
+.broadcaster-logo {
+    max-width: 50px;
+}
+
+#scheduleTable tr {
+    height: 75px; /* Or whatever height you prefer */
+}
