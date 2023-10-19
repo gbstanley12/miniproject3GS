@@ -15,3 +15,16 @@ CREATE TABLE post (
   body TEXT NOT NULL,
   FOREIGN KEY (author_id) REFERENCES user (id)
 );
+
+CREATE TABLE poll (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    question TEXT NOT NULL
+);
+
+CREATE TABLE option (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    option_text TEXT NOT NULL,
+    poll_id INTEGER,
+    votes INTEGER DEFAULT 0,
+    FOREIGN KEY (poll_id) REFERENCES poll (id)
+);

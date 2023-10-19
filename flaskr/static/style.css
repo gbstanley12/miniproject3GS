@@ -223,3 +223,21 @@ tbody tr:hover td {
 #scheduleTable tr {
     height: 75px; /* Or whatever height you prefer */
 }
+
+/* Red background for the modal content */
+#pollModal .modal-content {
+    background-color: #C60C30;
+    color: #fff; /* Assuming you want white text on the red background */
+}
+
+/* Change the modal title and close button color if needed */
+#pollModal .modal-header .modal-title,
+#pollModal .btn-close {
+    color: #fff;
+}
+
+/* Adjusting the radio button and label colors */
+#pollModal .form-check-input:checked ~ .form-check-label,
+#pollModal .form-check-label {
+    color: #fff;
+}
