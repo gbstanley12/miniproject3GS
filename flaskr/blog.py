@@ -2,7 +2,6 @@ from flask import Blueprint, flash, g, redirect, render_template, request, url_f
 from werkzeug.exceptions import abort
 from .auth import login_required
 from .db import get_db
-from . import blog
 
 bp = Blueprint('blog', __name__)
 
@@ -44,9 +43,7 @@ def create():
             db.commit()
             return redirect(url_for('blog.index'))
 
-    # This line should be at this indentation level within the function
     return render_template('blog/create.html')
-
 
 @bp.route('/<int:id>/edit', methods=('GET', 'POST'))
 @login_required
@@ -84,7 +81,6 @@ def delete(id):
     db.commit()
     return redirect(url_for('blog.index'))
 
-# helper function to get a single post
 def get_post(id, check_author=True):
     post = get_db().execute(
         'SELECT p.id, title, body, created, author_id, username'
@@ -104,3 +100,7 @@ def get_post(id, check_author=True):
 @bp.route('/roster')
 def roster():
     return render_template('roster.html')
+
+@bp.route('/schedule')
+def schedule():
+    return render_template('schedule.html')
