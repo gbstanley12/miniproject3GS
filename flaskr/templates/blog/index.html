@@ -1,28 +1,30 @@
 {% extends 'base.html' %}
 
-{% block header %}
-  <h1>{% block title %}Posts{% endblock %}</h1>
-  {% if g.user %}
-    <a class="action" href="{{ url_for('blog.create') }}">New</a>
-  {% endif %}
-{% endblock %}
-
 {% block content %}
-  {% for post in posts %}
-    <article class="post">
-      <header>
-        <div>
-          <h1>{{ post['title'] }}</h1>
-          <div class="about">by {{ post['username'] }} on {{ post['created'].strftime('%Y-%m-%d') }}</div>
-        </div>
-        {% if g.user['id'] == post['author_id'] %}
-          <a class="action" href="{{ url_for('blog.update', id=post['id']) }}">Edit</a>
+<h1>Blog Posts</h1>
+<div class="container mt-5">
+    <!-- Create Blog Post Button -->
+    <div class="mb-3">
+        {% if g.user %}
+          <a href="/create" class="btn btn-primary">Create Blog Post</a>
         {% endif %}
-      </header>
-      <p class="body">{{ post['body'] }}</p>
-    </article>
-    {% if not loop.last %}
-      <hr>
+    </div>
+
+{% for post in posts %}
+  <div class="post">
+    <h2>{{ post['title'] }}</h2>
+    <p>{{ post['body'] }}</p>
+    <p><small>Posted by {{ post['username'] }} on {{ post['created'] }}</small></p>
+
+    <!-- Edit and Delete buttons, but only for the author of the post -->
+    {% if g.user and g.user['id'] == post['author_id'] %}
+      <a href="{{ url_for('blog.edit', id=post['id']) }}" class="btn btn-secondary">Edit</a>
+
+      <form action="{{ url_for('blog.delete', id=post['id']) }}" method="post" style="display: inline;">
+          <button type="submit" class="btn btn-danger">Delete</button>
+      </form>
     {% endif %}
-  {% endfor %}
+  </div>
+{% endfor %}
+
 {% endblock %}

@@ -1,0 +1,185 @@
+{% extends 'base.html' %}
+
+<html lang="en">
+
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+    <title>Schedule</title>
+    <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+    <script>
+        $(document).ready( function () {
+            $('#scheduleTable').DataTable();
+        } );
+    </script>
+</head>
+
+<body>
+    <h1 style="text-align: center;">Schedule</h1>
+    <table id="scheduleTable" class="display">
+    <thead>
+        <tr>
+            <th>Week</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Opponent</th>
+            <th>Home/Away</th>
+            <th>Broadcaster</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>Sun 09/10</td>
+            <td>FINAL<br>L25-20</td>
+            <td><img src="/static/Images/eagles.png" alt="Philadelphia Eagles" width="100"></td>
+            <td>Home</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Sun 09/17</td>
+            <td>FINAL<br>L24-17</td>
+            <td><img src="/static/Images/dolphins.png" alt="Miami Dolphins" width="100"></td>
+            <td>Home</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Sun 09/24</td>
+            <td>FINAL<br>W15-10</td>
+            <td><img src="/static/Images/jets.png" alt="New York Jets" width="100"></td>
+            <td>Away</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>Sun 10/01</td>
+            <td>FINAL<br>L38-3</td>
+            <td><img src="/static/Images/cowboys.png" alt="Dallas Cowboys" width="100"></td>
+            <td>Away</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>Sun 10/08</td>
+            <td>FINAL<br>L34-0</td>
+            <td><img src="/static/Images/saints.png" alt="New Orleans Saints" width="100"></td>
+            <td>Home</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>Sun 10/15</td>
+            <td>FINAL<br>L21-17</td>
+            <td><img src="/static/Images/raiders.png" alt="Las Vegas Raiders" width="100"></td>
+            <td>Away</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>Sun 10/22</td>
+            <td>1:00 PM EDT</td>
+            <td><img src="/static/Images/bills.png" alt="Buffalo Bills" width="100"></td>
+            <td>Home</td>
+            <td><img src="static/Images/CBS.png" class="broadcaster-logo" alt="CBS"></td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td>Sun 10/29</td>
+            <td>1:00 PM EDT</td>
+            <td><img src="/static/Images/dolphins.png" alt="Miami Dolphins" width="100"></td>
+            <td>Away</td>
+            <td><img src="static/Images/CBS.png" class="broadcaster-logo" alt="CBS"></td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td>Sun 11/05</td>
+            <td>1:00 PM EST</td>
+            <td><img src="/static/Images/commanders.png" alt="Washington Commanders" width="100"></td>
+            <td>Home</td>
+            <td><img src="static/Images/FOX.png" class="broadcaster-logo" alt="FOX"></td>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td>Sun 11/12</td>
+            <td>9:30 AM EST</td>
+            <td><img src="/static/Images/colts.png" alt="Indianapolis Colts" width="100"></td>
+            <td>Home</td>
+            <td><img src="static/Images/NFL.png" class="broadcaster-logo" alt="NFL Network"></td>
+        </tr>
+        <tr>
+            <td>11</td>
+            <td>BYE</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td>12</td>
+            <td>Sun 11/26</td>
+            <td>1:00 PM EST</td>
+            <td><img src="/static/Images/giants.png" alt="New York Giants" width="100"></td>
+            <td>Away</td>
+            <td><img src="static/Images/FOX.png" class="broadcaster-logo" alt="FOX"></td>
+        </tr>
+        <tr>
+            <td>13</td>
+            <td>Sun 12/03</td>
+            <td>1:00 PM EST</td>
+            <td><img src="/static/Images/chargers.png" alt="Los Angeles Chargers" width="100"></td>
+            <td>Home</td>
+            <td><img src="static/Images/CBS.png" class="broadcaster-logo" alt="CBS"></td>
+        </tr>
+        <tr>
+            <td>14</td>
+            <td>Thu 12/07</td>
+            <td>8:15 PM EST</td>
+            <td><img src="/static/Images/steelers.png" alt="Pittsburgh Steelers" width="100"></td>
+            <td>Away</td>
+            <td><img src="static/Images/Prime.png" class="broadcaster-logo" alt="Prime"></td>
+        </tr>
+        <tr>
+            <td>15</td>
+            <td>Mon 12/18</td>
+            <td>8:15 PM EST</td>
+            <td><img src="/static/Images/chiefs.png" alt="Kansas City Chiefs" width="100"></td>
+            <td>Home</td>
+            <td><img src="static/Images/ESPN.png" class="broadcaster-logo" alt="ESPN"></td>
+        </tr>
+        <tr>
+            <td>16</td>
+            <td>Sun 12/24</td>
+            <td>8:15 PM EST</td>
+            <td><img src="/static/Images/broncos.png" alt="Denver Broncos" width="100"></td>
+            <td>Away</td>
+            <td><img src="static/Images/NFL.png" class="broadcaster-logo" alt="NFL Network"></td>
+        </tr>
+        <tr>
+            <td>17</td>
+            <td>Sun 12/31</td>
+            <td>1:00 PM EST</td>
+            <td><img src="/static/Images/bills.png" alt="Buffalo Bills" width="100"></td>
+            <td>Away</td><td>
+            <img src="static/Images/CBS.png" class="broadcaster-logo" alt="CBS"></td>
+        </tr>
+        <tr>
+            <td>18</td>
+            <td>TBD</td>
+            <td>TBD</td><td>
+            <img src="/static/Images/jets.png" alt="New York Jets" width="100"></td>
+            <td>Home</td>
+            <td>98.5 FM The Sports Hub</td>
+        </tr>
+        </tbody>
+    </table>
+</body>
+{% endblock %}
+
+
+</html>
+

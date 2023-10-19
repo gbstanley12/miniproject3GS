@@ -5,11 +5,18 @@
 {% endblock %}
 
 {% block content %}
-  <form method="post">
-    <label for="title">Title</label>
-    <input name="title" id="title" value="{{ request.form['title'] }}" required>
-    <label for="body">Body</label>
-    <textarea name="body" id="body">{{ request.form['body'] }}</textarea>
-    <input type="submit" value="Save">
-  </form>
+<div class="container mt-5">
+  <!-- Title -->
+  <h2 class="mb-4 text-center">Create Blog Post</h2>
+
+  <!-- Form -->
+  <div class="d-flex flex-column align-items-center">
+    <form action="{{ url_for('blog.create') }}" method="post">
+      <input type="text" name="title" class="form-control mb-3" style="width: 100%;" placeholder="Title" value="{{ request.form['title'] }}">
+      <textarea name="body" class="form-control mb-3" rows="5" style="width: 100%;" placeholder="Body">{{ request.form['body'] }}</textarea>
+      <button type="submit" class="btn btn-primary">Post</button>
+    </form>
+
+  </div>
+</div>
 {% endblock %}

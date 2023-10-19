@@ -1,0 +1,696 @@
+{% extends "base.html" %}
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block content %}
+    <title>Roster</title>
+</head>
+
+<body>
+    <h1 style="text-align: center;">Team Roster</h1>
+
+
+    <table id="rosterTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Number</th>
+                <th>Position</th>
+                <th>Height</th>
+                <th>Weight</th>
+                <th>Age</th>
+                <th>Experience</th>
+                <th>College</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Active Players -->
+            <tr>
+                <td>Calvin Anderson</td>
+                <td>76</td>
+                <td>OL</td>
+                <td>6-5</td>
+                <td>305</td>
+                <td>27</td>
+                <td>5</td>
+                <td>Texas</td>
+            </tr>
+            <tr>
+                <td>David Andrews</td>
+                <td>60</td>
+                <td>C</td>
+                <td>6-3</td>
+                <td>300</td>
+                <td>31</td>
+                <td>9</td>
+                <td>Georgia</td>
+            </tr>
+            <tr>
+                <td>Jake Andrews</td>
+                <td>67</td>
+                <td>C</td>
+                <td>6-3</td>
+                <td>308</td>
+                <td>23</td>
+                <td>R</td>
+                <td>Troy</td>
+            </tr>
+            <tr>
+                <td>Shaun Wade</td>
+                <td>26</td>
+                <td>CB</td>
+                <td>6-1</td>
+                <td>195</td>
+                <td>23</td>
+                <td>3</td>
+                <td>Ohio State</td>
+            </tr>
+            <tr>
+                <td>Myles Bryant</td>
+                <td>27</td>
+                <td>DB</td>
+                <td>5-9</td>
+                <td>192</td>
+                <td>25</td>
+                <td>4</td>
+                <td>Washington</td>
+            </tr>
+            <tr>
+                <td>Kyle Dugger</td>
+                <td>23</td>
+                <td>DB</td>
+                <td>6-2</td>
+                <td>222</td>
+                <td>27</td>
+                <td>4</td>
+                <td>Lenior-Rhyne</td>
+            </tr>
+            <tr>
+                <td>J.C. Jackson</td>
+                <td>29</td>
+                <td>DB</td>
+                <td>6-1</td>
+                <td>198</td>
+                <td>27</td>
+                <td>6</td>
+                <td>Maryland</td>
+            </tr>
+            <tr>
+                <td>Jonathan Jones</td>
+                <td>31</td>
+                <td>DB</td>
+                <td>5-10</td>
+                <td>185</td>
+                <td>30</td>
+                <td>8</td>
+                <td>Auburn</td>
+            </tr>
+            <tr>
+                <td>Jalen Mills</td>
+                <td>2</td>
+                <td>DB</td>
+                <td>6-0</td>
+                <td>200</td>
+                <td>29</td>
+                <td>8</td>
+                <td>LSU</td>
+            </tr>
+            <tr>
+                <td>Jabrill Peppers</td>
+                <td>5</td>
+                <td>DB</td>
+                <td>5-11</td>
+                <td>217</td>
+                <td>28</td>
+                <td>7</td>
+                <td>Michigan</td>
+            </tr>
+            <tr>
+                <td>Adrian Phillips</td>
+                <td>21</td>
+                <td>DB</td>
+                <td>5-11</td>
+                <td>208</td>
+                <td>31</td>
+                <td>9</td>
+                <td>Texas</td>
+            </tr>
+            <tr>
+                <td>Brenden Schooler</td>
+                <td>41</td>
+                <td>DB</td>
+                <td>6-1</td>
+                <td>210</td>
+                <td>26</td>
+                <td>2</td>
+                <td>Texas</td>
+            </tr>
+            <tr>
+                <td>Ameer Speed</td>
+                <td>28</td>
+                <td>DB</td>
+                <td>6-3</td>
+                <td>215</td>
+                <td>24</td>
+                <td>R</td>
+                <td>Michigan State</td>
+            </tr>
+            <tr>
+                <td>Keion White</td>
+                <td>99</td>
+                <td>DE</td>
+                <td>6-5</td>
+                <td>290</td>
+                <td>24</td>
+                <td>R</td>
+                <td>Georgia Tech</td>
+            </tr>
+            <tr>
+                <td>Christain Barmore</td>
+                <td>90</td>
+                <td>DL</td>
+                <td>6-5</td>
+                <td>315</td>
+                <td>24</td>
+                <td>3</td>
+                <td>Alabama</td>
+            </tr>
+            <tr>
+                <td>Davon Godchaux</td>
+                <td>92</td>
+                <td>DL</td>
+                <td>6-3</td>
+                <td>330</td>
+                <td>28</td>
+                <td>7</td>
+                <td>LSU</td>
+            </tr>
+            <tr>
+                <td>Lawrence Guy</td>
+                <td>93</td>
+                <td>DL</td>
+                <td>6-4</td>
+                <td>315</td>
+                <td>33</td>
+                <td>13</td>
+                <td>Arizona State</td>
+            </tr>
+            <tr>
+                <td>Sam Roberts</td>
+                <td>96</td>
+                <td>DL</td>
+                <td>6-5</td>
+                <td>300</td>
+                <td>25</td>
+                <td>2</td>
+                <td>Northwest Missouri State</td>
+            </tr>
+            <tr>
+                <td>Deatrich Wise Jr.</td>
+                <td>91</td>
+                <td>DL</td>
+                <td>6-6</td>
+                <td>280</td>
+                <td>29</td>
+                <td>7</td>
+                <td>Arkansas</td>
+            </tr>
+            <tr>
+                <td>Chad Ryland</td>
+                <td>37</td>
+                <td>K</td>
+                <td>6-0</td>
+                <td>195</td>
+                <td>24</td>
+                <td>R</td>
+                <td>Maryland</td>
+            </tr>
+            <tr>
+                <td>Ja'Whaun Bentley</td>
+                <td>8</td>
+                <td>LB</td>
+                <td>6-2</td>
+                <td>250</td>
+                <td>27</td>
+                <td>6</td>
+                <td>Purdue</td>
+            </tr>
+            <tr>
+                <td>Chris Board</td>
+                <td>45</td>
+                <td>LB</td>
+                <td>6-2</td>
+                <td>244</td>
+                <td>28</td>
+                <td>6</td>
+                <td>North Dakota State</td>
+            </tr>
+            <tr>
+                <td>Anfernee Jennings</td>
+                <td>33</td>
+                <td>LB</td>
+                <td>6-3</td>
+                <td>255</td>
+                <td>26</td>
+                <td>4</td>
+                <td>Alabama</td>
+            </tr>
+            <tr>
+                <td>Marte Mapu</td>
+                <td>30</td>
+                <td>LB</td>
+                <td>6-3</td>
+                <td>230</td>
+                <td>23</td>
+                <td>R</td>
+                <td>Sacremento State</td>
+            </tr>
+            <tr>
+                <td>Jahlani Tavai</td>
+                <td>48</td>
+                <td>LB</td>
+                <td>6-2</td>
+                <td>255</td>
+                <td>27</td>
+                <td>5</td>
+                <td>Hawaii</td>
+            </tr>
+            <tr>
+                <td>Josh Uche</td>
+                <td>55</td>
+                <td>LB</td>
+                <td>6-3</td>
+                <td>240</td>
+                <td>25</td>
+                <td>4</td>
+                <td>Michigan</td>
+            </tr>
+            <tr>
+                <td>Mack Wilson Sr.</td>
+                <td>3</td>
+                <td>LB</td>
+                <td>6-1</td>
+                <td>246</td>
+                <td>25</td>
+                <td>5</td>
+                <td>Alabama</td>
+            </tr>
+            <tr>
+                <td>Joe Cardona</td>
+                <td>49</td>
+                <td>LS</td>
+                <td>6-3</td>
+                <td>245</td>
+                <td>31</td>
+                <td>9</td>
+                <td>Navy</td>
+            </tr>
+            <tr>
+                <td>Trent Brown</td>
+                <td>77</td>
+                <td>OL</td>
+                <td>6-8</td>
+                <td>370</td>
+                <td>30</td>
+                <td>9</td>
+                <td>Florida</td>
+            </tr>
+            <tr>
+                <td>Antonio Mafi</td>
+                <td>68</td>
+                <td>OL</td>
+                <td>6-3</td>
+                <td>330</td>
+                <td>22</td>
+                <td>R</td>
+                <td>UCLA</td>
+            </tr>
+            <tr>
+                <td>Mike Onwenu</td>
+                <td>71</td>
+                <td>OL</td>
+                <td>6-3</td>
+                <td>350</td>
+                <td>25</td>
+                <td>4</td>
+                <td>Michigan</td>
+            </tr>
+            <tr>
+                <td>Riley Reiff</td>
+                <td>74</td>
+                <td>OL</td>
+                <td>6-6</td>
+                <td>310</td>
+                <td>34</td>
+                <td>12</td>
+                <td>Iowa</td>
+            </tr>
+            <tr>
+                <td>Sidy Sow</td>
+                <td>62</td>
+                <td>OL</td>
+                <td>6-5</td>
+                <td>318</td>
+                <td>25</td>
+                <td>R</td>
+                <td>Eastern Michigan</td>
+            </tr>
+            <tr>
+                <td>Cole Strange</td>
+                <td>69</td>
+                <td>OL</td>
+                <td>6-5</td>
+                <td>310</td>
+                <td>25</td>
+                <td>2</td>
+                <td>Tennessee-Chattanooga</td>
+            </tr>
+            <tr>
+                <td>Vederian Lowe</td>
+                <td>59</td>
+                <td>OL</td>
+                <td>6-6</td>
+                <td>320</td>
+                <td>24</td>
+                <td>2</td>
+                <td>Illinois</td>
+            </tr>
+            <tr>
+                <td>Bryce Baringer</td>
+                <td>17</td>
+                <td>P</td>
+                <td>6-3</td>
+                <td>215</td>
+                <td>24</td>
+                <td>R</td>
+                <td>Michigan State</td>
+            </tr>
+            <tr>
+                <td>Malik Cunnigham</td>
+                <td>16</td>
+                <td>QB</td>
+                <td>6-1</td>
+                <td>198</td>
+                <td>25</td>
+                <td>R</td>
+                <td>Louisville</td>
+            </tr>
+            <tr>
+                <td>Will Grier</td>
+                <td>19</td>
+                <td>QB</td>
+                <td>6-1</td>
+                <td>220</td>
+                <td>28</td>
+                <td>5</td>
+                <td>West Virginia</td>
+            </tr>
+            <tr>
+                <td>Mac Jones</td>
+                <td>10</td>
+                <td>QB</td>
+                <td>6-3</td>
+                <td>220</td>
+                <td>25</td>
+                <td>3</td>
+                <td>Alabama</td>
+            </tr>
+            <tr>
+                <td>Bailey Zappe</td>
+                <td>4</td>
+                <td>QB</td>
+                <td>6-1</td>
+                <td>215</td>
+                <td>24</td>
+                <td>2</td>
+                <td>Western Kentucky</td>
+            </tr>
+            <tr>
+                <td>Ezekiel Elliot</td>
+                <td>15</td>
+                <td>RB</td>
+                <td>6-0</td>
+                <td>225</td>
+                <td>28</td>
+                <td>8</td>
+                <td>Ohio State</td>
+            </tr>
+            <tr>
+                <td>Rhamondre Stevenson</td>
+                <td>38</td>
+                <td>RB</td>
+                <td>6-0</td>
+                <td>227</td>
+                <td>25</td>
+                <td>3</td>
+                <td>Oklahoma</td>
+            </tr>
+            <tr>
+                <td>Pharaoh Brown</td>
+                <td>86</td>
+                <td>TE</td>
+                <td>6-5</td>
+                <td>246</td>
+                <td>29</td>
+                <td>6</td>
+                <td>Oregon</td>
+            </tr>
+            <tr>
+                <td>Mike Gesicki</td>
+                <td>88</td>
+                <td>TE</td>
+                <td>6-6</td>
+                <td>245</td>
+                <td>28</td>
+                <td>6</td>
+                <td>Penn State</td>
+            </tr>
+            <tr>
+                <td>Hunter Henry</td>
+                <td>85</td>
+                <td>TE</td>
+                <td>6-5</td>
+                <td>258</td>
+                <td>28</td>
+                <td>8</td>
+                <td>Arkansas</td>
+            </tr>
+            <tr>
+                <td>Kendrick Bourne</td>
+                <td>84</td>
+                <td>WR</td>
+                <td>6-1</td>
+                <td>205</td>
+                <td>28</td>
+                <td>7</td>
+                <td>Eastern Washington</td>
+            </tr>
+            <tr>
+                <td>Kayshon Boutte</td>
+                <td>80</td>
+                <td>WR</td>
+                <td>6-0</td>
+                <td>197</td>
+                <td>21</td>
+                <td>R</td>
+                <td>LSU</td>
+            </tr>
+            <tr>
+                <td>Demario Douglas</td>
+                <td>81</td>
+                <td>WR</td>
+                <td>5-8</td>
+                <td>192</td>
+                <td>22</td>
+                <td>R</td>
+                <td>Liberty</td>
+            </tr>
+            <tr>
+                <td>Ty Montgomery II</td>
+                <td>14</td>
+                <td>WR</td>
+                <td>6-0</td>
+                <td>220</td>
+                <td>30</td>
+                <td>9</td>
+                <td>Stanford</td>
+            </tr>
+            <tr>
+                <td>DeVante Parker</td>
+                <td>1</td>
+                <td>WR</td>
+                <td>6-3</td>
+                <td>215</td>
+                <td>30</td>
+                <td>9</td>
+                <td>Louisville</td>
+            </tr>
+            <tr>
+                <td>Matthew Slater</td>
+                <td>18</td>
+                <td>WR</td>
+                <td>6-0</td>
+                <td>205</td>
+                <td>38</td>
+                <td>16</td>
+                <td>UCLA</td>
+            </tr>
+            <tr>
+                <td>JuJu Smith-Schuster</td>
+                <td>7</td>
+                <td>WR</td>
+                <td>6-1</td>
+                <td>215</td>
+                <td>26</td>
+                <td>7</td>
+                <td>USC</td>
+            </tr>
+            <tr>
+                <td>Tyquan Thorton</td>
+                <td>11</td>
+                <td>WR</td>
+                <td>6-2</td>
+                <td>185</td>
+                <td>23</td>
+                <td>2</td>
+                <td>Baylor</td>
+            </tr>
+            <tr>
+                <td>Isiah Bolden</td>
+                <td>7</td>
+                <td>CB</td>
+                <td>6-2</td>
+                <td>205</td>
+                <td>23</td>
+                <td>R</td>
+                <td>Jackson State</td>
+            </tr>
+            <tr>
+                <td>Daniel Ekuale</td>
+                <td>95</td>
+                <td>DL</td>
+                <td>6-3</td>
+                <td>310</td>
+                <td>29</td>
+                <td>5</td>
+                <td>Washington State</td>
+            </tr>
+            <tr>
+                <td>Christain Gonzalez</td>
+                <td>6</td>
+                <td>CB</td>
+                <td>6-2</td>
+                <td>205</td>
+                <td>21</td>
+                <td>R</td>
+                <td>Oregon</td>
+            </tr>
+            <tr>
+                <td>Jack Jones</td>
+                <td>13</td>
+                <td>DB</td>
+                <td>5-11</td>
+                <td>180</td>
+                <td>25</td>
+                <td>2</td>
+                <td>Arizona State</td>
+            </tr>
+           <tr>
+                <td>Marcus Jones</td>
+                <td>25</td>
+                <td>DB</td>
+                <td>5-8</td>
+                <td>188</td>
+                <td>24</td>
+                <td>2</td>
+                <td>Houston</td>
+            </tr>
+           <tr>
+                <td>Matthew Judon</td>
+                <td>9</td>
+                <td>LB</td>
+                <td>6-3</td>
+                <td>270</td>
+                <td>31</td>
+                <td>8</td>
+                <td>Grand Valley</td>
+            </tr>
+           <tr>
+                <td>Raekwon McMillian</td>
+                <td>50</td>
+                <td>LB</td>
+                <td>6-2</td>
+                <td>250</td>
+                <td>27</td>
+                <td>6</td>
+                <td>Ohio State</td>
+            </tr>
+           <tr>
+                <td>Tre Nixon</td>
+                <td>82</td>
+                <td>WR</td>
+                <td>6-2</td>
+                <td>190</td>
+                <td>25</td>
+                <td>1</td>
+                <td>UCF</td>
+            </tr>
+           <tr>
+                <td>Tyrone Wheatley Jr.</td>
+                <td>72</td>
+                <td>OT</td>
+                <td>6-6</td>
+                <td>320</td>
+                <td>26</td>
+                <td>1</td>
+                <td>Stony Brook</td>
+            </tr>
+           <tr>
+                <td>Cody Davis</td>
+                <td>22</td>
+                <td>DB</td>
+                <td>6-2</td>
+                <td>205</td>
+                <td>34</td>
+                <td>11</td>
+                <td>Texas Tech</td>
+            </tr>
+           <tr>
+                <td>Trey Flowers</td>
+                <td>98</td>
+                <td>DE</td>
+                <td>6-2</td>
+                <td>265</td>
+                <td>30</td>
+                <td>9</td>
+                <td>Arkansas</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        // Sort the table by jersey number
+        const table = document.querySelector('table');
+        const tbody = table.querySelector('tbody');
+        const rows = Array.from(tbody.querySelectorAll('tr'));
+
+        rows.sort((a, b) => {
+            const aNum = Number(a.children[1].textContent); // Number column
+            const bNum = Number(b.children[1].textContent);
+            return aNum - bNum;
+        });
+
+        // Append sorted rows back to the table
+        rows.forEach(row => {
+            tbody.appendChild(row);
+        });
+    </script>
+</body>
+{% endblock %}
+
+</html>
+
+
