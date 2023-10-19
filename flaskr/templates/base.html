@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,20 +8,19 @@
     <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
-
     <title>New England Patriot Fanpage</title>
-  </head>
-  <body>
-  <!-- Navigation Bar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a href="{{ url_for('index') }}">
-          <img src="{{ url_for('static', filename='Images/navbar') }}" alt="Home" width="50px" height="50px">
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
+</head>
+<body>
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a href="{{ url_for('index') }}">
+        <img src="{{ url_for('static', filename='Images/navbar') }}" alt="Home" width="50px" height="50px">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
             <li class="nav-item {{ 'active' if request.path == '/' else '' }}">
                 <a class="nav-link" href="/">Blog</a>
             </li>
@@ -31,32 +30,62 @@
             <li class="nav-item {{ 'active' if request.path == '/schedule' else '' }}">
                 <a class="nav-link" href="/schedule">Schedule</a>
             </li>
-              {% if not g.user %}
-                  <li class="nav-item">
-                      <a class="nav-link" href="/auth/register">Register</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="/auth/login">Login</a>
-                  </li>
-              {% else %}
-                  <li class="nav-item">
-                      <a class="nav-link" href="/auth/logout">Logout</a>
-                  </li>
-              {% endif %}
-          </ul>
-      </div>
-  </nav>
-
-
-      <!-- Display Blog Posts -->
-      {% block content %}
-      {% endblock %}
+            {% if not g.user %}
+                <li class="nav-item">
+                    <a class="nav-link" href="/auth/register">Register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/auth/login">Login</a>
+                </li>
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="/auth/logout">Logout</a>
+                </li>
+            {% endif %}
+        </ul>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#pollModal">Survey</button>
     </div>
+</nav>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  </body>
+<!-- Poll Modal -->
+<div class="modal fade" id="pollModal" tabindex="-1" aria-labelledby="pollModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="pollModalLabel">Poll</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                {% if poll %}
+                    <form method="post" action="{{ url_for('polls.vote', id=poll.id) }}">
+                        {% for option in poll_options %}
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="poll" id="option{{ option.id }}" value="{{ option.id }}">
+                                <label class="form-check-label" for="option{{ option.id }}">
+                                    {{ option.text }}
+                                </label>
+                            </div>
+                        {% endfor %}
+                    </form>
+                {% endif %}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Display Blog Posts -->
+{% block content %}
+{% endblock %}
+</div>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
 </html>
