@@ -1,4 +1,6 @@
 /* General styling and layout */
+
+/* Set default font, background, text color, and padding for the entire page */
 html {
   font-family: 'Helvetica Neue', sans-serif;
   background: #0C2340; /* Patriots navy blue */
@@ -6,6 +8,7 @@ html {
   padding: 1rem;
 }
 
+/* Style the body with a max width, centered alignment, and shadow effect */
 body {
   max-width: 960px;
   margin: 0 auto;
@@ -15,6 +18,8 @@ body {
 }
 
 /* Header styling */
+
+/* Style main headers with a specific font, color, margin, and weight */
 h1 {
   font-family: 'Georgia', serif;
   color: #C60C30; /* Patriots red */
@@ -22,16 +27,19 @@ h1 {
   font-weight: bold;
 }
 
+/* Style links with a specific color and remove underlines */
 a {
   color: #0C2340; /* Patriots navy blue */
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
+/* Change link color on hover */
 a:hover {
   color: #C60C30; /* Patriots red */
 }
 
+/* Style horizontal rules with a specific color and margin */
 hr {
   border: none;
   border-top: 3px solid #C60C30; /* Patriots red */
@@ -39,6 +47,8 @@ hr {
 }
 
 /* Navigation styling */
+
+/* Style the navigation bar with a background, flex layout, and padding */
 nav {
   background: #C60C30; /* Patriots red */
   display: flex;
@@ -48,17 +58,20 @@ nav {
   margin-bottom: 1rem;
 }
 
+/* Adjust the main title in the navigation bar */
 nav h1 {
   flex: auto;
   margin: 0;
 }
 
+/* Style the main title link in the navigation bar */
 nav h1 a {
   text-decoration: none;
   padding: 0.25rem 0.5rem;
   color: white;
 }
 
+/* Style the list in the navigation bar */
 nav ul {
   display: flex;
   list-style: none;
@@ -66,6 +79,7 @@ nav ul {
   padding: 0;
 }
 
+/* Style the links and spans in the navigation bar */
 nav ul li a, nav ul li span, header .action {
   display: block;
   padding: 0.5rem;
@@ -73,21 +87,26 @@ nav ul li a, nav ul li span, header .action {
 }
 
 /* Content styling */
+
+/* Add padding to the main content area */
 .content {
   padding: 0 1rem 1rem;
 }
 
+/* Style the header within the content area */
 .content > header {
   border-bottom: 2px solid #ADB5BD; /* Silver color */
   display: flex;
   align-items: flex-end;
 }
 
+/* Adjust the main title within the content header */
 .content > header h1 {
   flex: auto;
   margin: 1rem 0 0.25rem 0;
 }
 
+/* Style flash messages or notifications */
 .flash {
   margin: 1em 0;
   padding: 1em;
@@ -95,26 +114,31 @@ nav ul li a, nav ul li span, header .action {
   border: 2px solid #0C2340; /* Patriots navy blue */
 }
 
+/* Style the header of a post */
 .post > header {
   display: flex;
   align-items: flex-end;
   font-size: 0.85em;
 }
 
+/* Adjust the first div within the post header */
 .post > header > div:first-of-type {
   flex: auto;
 }
 
+/* Adjust the main title within the post header */
 .post > header h1 {
   font-size: 1.5em;
   margin-bottom: 0;
 }
 
+/* Style the about section of a post */
 .post .about {
   color: #555;
   font-style: italic;
 }
 
+/* Style the main body of a post */
 .post .body {
   white-space: pre-line;
   margin: 1rem 0;
@@ -122,22 +146,26 @@ nav ul li a, nav ul li span, header .action {
   line-height: 1.5;
 }
 
+/* Remove the bottom margin for the last content element */
 .content:last-child {
   margin-bottom: 0;
 }
 
+/* Style forms within the content area */
 .content form {
   margin: 1em 0;
   display: flex;
   flex-direction: column;
 }
 
+/* Style form labels within the content area */
 .content label {
   font-weight: bold;
   margin-bottom: 0.5em;
   color: #0C2340; /* Patriots navy blue */
 }
 
+/* Style input fields and textareas within the content area */
 .content input, .content textarea {
   margin-bottom: 1em;
   padding: 0.5em;
@@ -146,16 +174,19 @@ nav ul li a, nav ul li span, header .action {
   transition: border 0.3s ease;
 }
 
+/* Adjust the height and resizing of textareas */
 .content textarea {
   min-height: 12em;
   resize: vertical;
 }
 
+/* Style input fields with a danger state */
 input.danger {
   color: #cc2f2e;
   border-color: #cc2f2e;
 }
 
+/* Style submit buttons */
 input[type=submit] {
   align-self: start;
   min-width: 10em;
@@ -168,10 +199,14 @@ input[type=submit] {
   transition: background-color 0.3s ease;
 }
 
+/* Change the background color of submit buttons on hover */
 input[type=submit]:hover {
   background-color: #C60C30; /* Patriots red */
 }
-/* Reset some default table styles */
+
+/* Reset and style tables */
+
+/* Set default table styles */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -180,11 +215,12 @@ table {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Header styles */
+/* Style table headers */
 thead {
     background-color: #0C2340; /* Patriots navy blue */
 }
 
+/* Style individual table header cells */
 thead th {
     color: white; /* White text for headers */
     padding: 12px 15px;
@@ -192,52 +228,22 @@ thead th {
     text-align: left;
 }
 
-/* Row styles */
+/* Style table rows */
 tbody tr {
     transition: background-color 0.3s ease; /* Smooth hover effect */
 }
 
+/* Add a hover effect to table rows */
 tbody tr:hover {
     background-color: rgba(0, 0, 255, 0.1); /* Slight blue background on hover */
 }
 
+/* Style individual table data cells */
 tbody td {
     padding: 10px 15px;
     border-bottom: 1px solid #ddd; /* Light gray border between rows */
 }
 
-/* Remove the bottom border from the last row to keep it clean */
+/* Remove the bottom border from the last row */
 tbody tr:last-child td {
-    border-bottom: none;
-}
-
-/* Add a Patriots red color on hover for better interactivity */
-tbody tr:hover td {
-    color: red;
-}
-
-.broadcaster-logo {
-    max-width: 50px;
-}
-
-#scheduleTable tr {
-    height: 75px; /* Or whatever height you prefer */
-}
-
-/* Red background for the modal content */
-#pollModal .modal-content {
-    background-color: #C60C30;
-    color: #fff; /* Assuming you want white text on the red background */
-}
-
-/* Change the modal title and close button color if needed */
-#pollModal .modal-header .modal-title,
-#pollModal .btn-close {
-    color: #fff;
-}
-
-/* Adjusting the radio button and label colors */
-#pollModal .form-check-input:checked ~ .form-check-label,
-#pollModal .form-check-label {
-    color: #fff;
-}
+    border-bottom:

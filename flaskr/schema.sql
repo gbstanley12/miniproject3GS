@@ -1,30 +1,22 @@
+-- Drop the user table if it already exists
 DROP TABLE IF EXISTS user;
+
+-- Drop the post table if it already exists
 DROP TABLE IF EXISTS post;
 
+-- Create a new user table with an auto-incrementing primary key, a unique username, and a password
 CREATE TABLE user (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  username TEXT UNIQUE NOT NULL,
-  password TEXT NOT NULL
+  id INTEGER PRIMARY KEY AUTOINCREMENT,  -- Auto-incrementing primary key for the user
+  username TEXT UNIQUE NOT NULL,         -- Unique username for the user
+  password TEXT NOT NULL                 -- Password for the user
 );
 
+-- Create a new post table with an auto-incrementing primary key, a foreign key reference to the user table, a timestamp for when the post was created, a title, and a body
 CREATE TABLE post (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  author_id INTEGER NOT NULL,
-  created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  title TEXT NOT NULL,
-  body TEXT NOT NULL,
-  FOREIGN KEY (author_id) REFERENCES user (id)
-);
-
-CREATE TABLE poll (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    question TEXT NOT NULL
-);
-
-CREATE TABLE option (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    option_text TEXT NOT NULL,
-    poll_id INTEGER,
-    votes INTEGER DEFAULT 0,
-    FOREIGN KEY (poll_id) REFERENCES poll (id)
+  id INTEGER PRIMARY KEY AUTOINCREMENT,  -- Auto-incrementing primary key for the post
+  author_id INTEGER NOT NULL,            -- Foreign key reference to the user who authored the post
+  created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,  -- Timestamp for when the post was created, defaulting to the current timestamp
+  title TEXT NOT NULL,                   -- Title of the post
+  body TEXT NOT NULL,                    -- Body/content of the post
+  FOREIGN KEY (author_id) REFERENCES user (id)  -- Establish the foreign key relationship between post and user tables
 );

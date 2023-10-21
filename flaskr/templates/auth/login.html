@@ -1,16 +1,26 @@
+{# Extend the base template 'base.html' #}
 {% extends 'base.html' %}
 
+{# Define the content block that will be inserted into the base template #}
 {% block content %}
-<h1>Login</h1>
+<h1>Login</h1> {# Display a heading for the login page #}
+
+{# Start a form with a POST method to send data to the server #}
 <form method="post">
+    {# Create a form group for the username input #}
     <div class="form-group">
-        <label for="username">Username</label>
-        <input type="text" class="form-control" id="username" name="username" required>
+        <label for="username">Username</label> {# Label for the username input #}
+        <input type="text" class="form-control" id="username" name="username" required> {# Text input for the username #}
     </div>
+
+    {# Create a form group for the password input #}
     <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" class="form-control" id="password" name="password" required>
+        <label for="password">Password</label> {# Label for the password input #}
+        <input type="password" class="form-control" id="password" name="password" required> {# Password input field that hides the entered characters #}
     </div>
+
+    {# Button to submit the form #}
     <button type="submit" class="btn btn-primary">Login</button>
 </form>
-{% endblock %}
+
+{% endblock %} {# End of the content block #}

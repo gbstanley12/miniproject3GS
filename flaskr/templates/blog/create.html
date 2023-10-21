@@ -1,22 +1,33 @@
+{# Extend the base template 'base.html' #}
 {% extends 'base.html' %}
 
+{# Define the header block that will be inserted into the base template #}
 {% block header %}
+  {# Display a heading for the page, which can be overridden by child templates #}
   <h1>{% block title %}New Post{% endblock %}</h1>
 {% endblock %}
 
+{# Define the content block that will be inserted into the base template #}
 {% block content %}
 <div class="container mt-5">
-  <!-- Title -->
+  {# Display a sub-heading for the blog post creation #}
   <h2 class="mb-4 text-center">Create Blog Post</h2>
 
-  <!-- Form -->
+  {# Start the form section for creating a blog post #}
   <div class="d-flex flex-column align-items-center">
+    {# Form action points to the 'blog.create' route in the Flask app #}
     <form action="{{ url_for('blog.create') }}" method="post">
+      {# Input field for the blog post title with a default value from the request form if available #}
       <input type="text" name="title" class="form-control mb-3" style="width: 100%;" placeholder="Title" value="{{ request.form['title'] }}">
-      <textarea name="body" class="form-control mb-3" rows="5" style="width: 100%;" placeholder="Body">{{ request.form['body'] }}</textarea>
-      <button type="submit" class="btn btn-primary">Post</button>
-    </form>
 
+      {# Textarea for the blog post body with a default value from the request form if available #}
+      <textarea name="body" class="form-control mb-3" rows="5" style="width: 100%;" placeholder="Body">{{ request.form['body'] }}</textarea>
+
+      {# Button to submit the form and create the blog post #}
+      <div style="text-align: center;">
+          <button type="submit" class="btn btn-primary mb-3" style="background-color: #C60C30; border-color: #C60C30;">Post</button>
+      </div>
+    </form>
   </div>
 </div>
 {% endblock %}
