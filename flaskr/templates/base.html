@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,20 +8,19 @@
     <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
-
     <title>New England Patriot Fanpage</title>
-  </head>
-  <body>
-  <!-- Navigation Bar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a href="{{ url_for('index') }}">
-          <img src="{{ url_for('static', filename='Images/navbar') }}" alt="Home" width="50px" height="50px">
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
+</head>
+<body>
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a href="{{ url_for('index') }}">
+        <img src="{{ url_for('static', filename='Images/navbar') }}" alt="Home" width="50px" height="50px">
+    </a>
+     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
             <li class="nav-item {{ 'active' if request.path == '/' else '' }}">
                 <a class="nav-link" href="/">Blog</a>
             </li>
@@ -31,32 +30,69 @@
             <li class="nav-item {{ 'active' if request.path == '/schedule' else '' }}">
                 <a class="nav-link" href="/schedule">Schedule</a>
             </li>
-              {% if not g.user %}
-                  <li class="nav-item">
-                      <a class="nav-link" href="/auth/register">Register</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="/auth/login">Login</a>
-                  </li>
-              {% else %}
-                  <li class="nav-item">
-                      <a class="nav-link" href="/auth/logout">Logout</a>
-                  </li>
-              {% endif %}
-          </ul>
-      </div>
-  </nav>
+            {% if not g.user %}
+                <li class="nav-item">
+                    <a class="nav-link" href="/auth/register">Register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/auth/login">Login</a>
+                </li>
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="/auth/logout">Logout</a>
+                </li>
+            {% endif %}
+        </ul>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary ml-auto" style="background-color: #C60C30; border-color: #C60C30;" data-toggle="modal" data-target="#historyModal">
+            Patriots History
+        </button>
 
-
-      <!-- Display Blog Posts -->
-      {% block content %}
-      {% endblock %}
     </div>
+</nav>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  </body>
+<!-- History Modal -->
+<div class="modal fade" id="historyModal" tabindex="-1" role="dialog" aria-labelledby="historyModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="historyModalLabel">New England Patriots History</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="text-center">
+            <img src="/static/Images/patriots.png" alt="New England Patriots" width="250">
+        </div>
+        <p>The New England Patriots, an iconic team in the National Football League (NFL), have a storied history that dates back to their founding in 1959. Originally known as the Boston Patriots, they were a charter member of the American Football League (AFL) before the AFL-NFL merger in 1970. The team's early years in the AFL were marked by moderate success, with them reaching the AFL Championship in 1963, though they were defeated by the San Diego Chargers. In 1971, the team was renamed the New England Patriots, reflecting a broader regional identity, and in the same decade, they moved to their new home in Foxborough, Massachusetts, where they play to this day at Gillette Stadium.
+
+        <p>The 1980s and early 1990s were a period of fluctuation for the Patriots, with moments of success, including a trip to Super Bowl XX in 1986, interspersed with less successful seasons. However, the team's fortunes began to change dramatically in the late 1990s. The hiring of Bill Belichick as head coach in 2000, and the drafting of quarterback Tom Brady in the same year, marked the beginning of a golden era for the Patriots. Under Belichick's leadership and with Brady at the helm, the Patriots became a dominant force in the NFL, renowned for their strategic prowess, disciplined play, and ability to perform under pressure.</p>
+
+        <p>The early 2000s saw the Patriots secure three Super Bowl titles in four years (Super Bowl XXXVI in 2001, Super Bowl XXXVIII in 2003, and Super Bowl XXXIX in 2004), establishing them as the team of the decade. Their success wasn't limited to this period; the Patriots continued to be a formidable presence in the NFL throughout the 2010s. They reached the Super Bowl five more times in that decade, winning three times: Super Bowl XLIX in 2014, Super Bowl LI in 2016 in a historic comeback against the Atlanta Falcons, and Super Bowl LIII in 2018. </p>
+
+        <p>Tom Brady's partnership with Bill Belichick, spanning two decades, is often hailed as one of the most successful player-coach duos in NFL history. Together, they brought the Patriots six Super Bowl titles, with Brady earning four Super Bowl MVP awards. However, all eras come to an end, and in 2020, Tom Brady left the Patriots to join the Tampa Bay Buccaneers, marking the end of an epoch for the team. </p>
+
+        <p> Beyond their on-field achievements, the Patriots have also been known for their "Patriot Way" – a team-first ethos that emphasizes discipline, adaptability, and a relentless work ethic. This philosophy, instilled by Belichick, has been a cornerstone of the team's sustained success. Over the years, the Patriots have also been involved in several controversies, including "Spygate" in 2007 and "Deflategate" in 2015, but these incidents have not overshadowed their on-field achievements.</p>
+
+        <p>The New England Patriots, from their humble beginnings in the AFL to their dynastic run in the 2000s and 2010s, have etched their name as one of the most successful and celebrated franchises in NFL history. Their legacy is a testament to strategic brilliance, unparalleled teamwork, and the relentless pursuit of excellence.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Display Blog Posts -->
+{% block content %}
+{% endblock %}
+</div>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
 </html>
