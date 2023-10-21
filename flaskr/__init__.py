@@ -4,7 +4,7 @@
 
 import os
 from flask import Flask
-from . import db, auth, blog
+from . import db, auth, blog, polls
 
 def create_app():
     app = Flask(__name__)
@@ -16,6 +16,7 @@ def create_app():
     db.init_app(app)
     app.register_blueprint(auth.bp)
     app.register_blueprint(blog.bp)
+    app.register_blueprint(polls.bp)
     app.add_url_rule('/', endpoint='index')
 
     return app

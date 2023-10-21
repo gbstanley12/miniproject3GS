@@ -104,4 +104,3 @@ def roster():
 @bp.route('/schedule')
 def schedule():
     return render_template('schedule.html')
-
