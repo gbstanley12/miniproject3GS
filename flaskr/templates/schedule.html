@@ -1,15 +1,22 @@
+<!-- Extending from the base template 'base.html' -->
 {% extends 'base.html' %}
 
 <html lang="en">
 
+<!-- Start of the content block that can be overridden in child templates -->
 {% block content %}
 <head>
+    <!-- Meta information about the document -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+    <!-- Setting the title of the page -->
     <title>Schedule</title>
+    <!-- Linking to the jQuery library -->
     <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Linking to the DataTables JavaScript library -->
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+    <!-- Inline script to initialize the DataTables functionality on the table with ID 'scheduleTable' -->
     <script>
         $(document).ready( function () {
             $('#scheduleTable').DataTable();
@@ -18,8 +25,11 @@
 </head>
 
 <body>
+    <!-- Centered heading for the page -->
     <h1 style="text-align: center;">Schedule</h1>
+    <!-- Table that will be enhanced using DataTables -->
     <table id="scheduleTable" class="display">
+    <!-- Table headers -->
     <thead>
         <tr>
             <th>Week</th>
@@ -30,7 +40,9 @@
             <th>Broadcaster</th>
         </tr>
     </thead>
+    <!-- Table data rows -->
     <tbody>
+        <!-- Each row represents a game with details like week, date, time, opponent, home/away status, and broadcaster -->
         <tr>
             <td>1</td>
             <td>Sun 09/10</td>

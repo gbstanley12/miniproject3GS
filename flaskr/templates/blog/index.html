@@ -1,27 +1,35 @@
+{# Extend the base template 'base.html' #}
 {% extends 'base.html' %}
 
+{# Define the content block that will be inserted into the base template #}
 {% block content %}
 <div class="d-flex justify-content-between align-items-center">
+    {# Display a heading for the blog posts page #}
     <h1>Blog Posts</h1>
-    <!-- Create Blog Post Button -->
+
+    {# Check if a user is logged in #}
     {% if g.user %}
+        {# Display a button to create a new blog post if a user is logged in #}
         <a href="/create" style="background-color: #C60C30; border-color: #C60C30;" class="btn btn-primary mr-3">Create Blog Post</a>
     {% endif %}
 </div>
 
-
-
-
+{# Loop through each post in the 'posts' list #}
 {% for post in posts %}
   <div class="post">
+    {# Display the title and body of the post #}
     <h2>{{ post['title'] }}</h2>
     <p>{{ post['body'] }}</p>
+
+    {# Display the author and creation date of the post #}
     <p><small>Posted by {{ post['username'] }} on {{ post['created'] }}</small></p>
 
-    <!-- Edit and Delete buttons, but only for the author of the post -->
+    {# Check if a user is logged in and if they are the author of the post #}
     {% if g.user and g.user['id'] == post['author_id'] %}
+      {# Display an edit button for the post #}
       <a href="{{ url_for('blog.edit', id=post['id']) }}" class="btn btn-secondary">Edit</a>
 
+      {# Display a form with a delete button to delete the post #}
       <form action="{{ url_for('blog.delete', id=post['id']) }}" method="post" style="display: inline;">
           <button type="submit" class="btn btn-danger">Delete</button>
       </form>

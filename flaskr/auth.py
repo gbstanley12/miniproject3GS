@@ -3,8 +3,10 @@ from werkzeug.security import check_password_hash, generate_password_hash
 from functools import wraps
 from .db import get_db
 
+# Creating a Blueprint named 'auth' for authentication-related routes
 bp = Blueprint('auth', __name__, url_prefix='/auth')
 
+# Decorator to ensure the user is logged in before accessing certain views
 def login_required(view):
     @wraps(view)
     def wrapped_view(**kwargs):
@@ -13,6 +15,7 @@ def login_required(view):
         return view(**kwargs)
     return wrapped_view
 
+# Before each request, load the logged-in user's data if available
 @bp.before_app_request
 def load_logged_in_user():
     user_id = session.get('user_id')
@@ -26,6 +29,7 @@ def load_logged_in_user():
 
     g.current_user = g.user
 
+# Route for logging in
 @bp.route('/login', methods=('GET', 'POST'))
 def login():
     if request.method == 'POST':
@@ -37,6 +41,7 @@ def login():
             'SELECT * FROM user WHERE username = ?', (username,)
         ).fetchone()
 
+        # Check if the user exists and the password is correct
         if user is None or not check_password_hash(user['password'], password):
             error = 'Incorrect username or password.'
 
@@ -49,6 +54,7 @@ def login():
 
     return render_template('auth/login.html')
 
+# Route for registering a new user
 @bp.route('/register', methods=('GET', 'POST'))
 def register():
     if request.method == 'POST':
@@ -57,13 +63,16 @@ def register():
         db = get_db()
         error = None
 
+        # Basic validation for username and password
         if not username:
             error = 'Username is required.'
         elif not password:
             error = 'Password is required.'
+        # Check if the username is already taken
         elif db.execute('SELECT id FROM user WHERE username = ?', (username,)).fetchone() is not None:
             error = 'User {} is already registered.'.format(username)
 
+        # If no errors, insert the new user into the database
         if error is None:
             db.execute(
                 'INSERT INTO user (username, password) VALUES (?, ?)',
@@ -76,6 +85,7 @@ def register():
 
     return render_template('auth/register.html')
 
+# Route for logging out
 @bp.route('/logout')
 def logout():
     session.clear()

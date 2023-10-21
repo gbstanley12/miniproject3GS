@@ -1,3 +1,4 @@
+<!-- Extend the base template -->
 {% extends "base.html" %}
 
 <html lang="en">
@@ -5,15 +6,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Define a block named "content" -->
     {% block content %}
     <title>Roster</title>
 </head>
 
 <body>
+    <!-- Display the title of the page -->
     <h1 style="text-align: center;">Team Roster</h1>
 
-
+    <!-- Create a table to display the team roster -->
     <table id="rosterTable">
+        <!-- Table headers -->
         <thead>
             <tr>
                 <th>Name</th>
@@ -669,14 +674,19 @@
                 <td>Arkansas</td>
             </tr>
         </tbody>
+        <!-- Table rows for each player with their details -->
     </table>
 
     <script>
         // Sort the table by jersey number
+
+        // Select the table and its body
         const table = document.querySelector('table');
         const tbody = table.querySelector('tbody');
+        // Convert the table rows to an array
         const rows = Array.from(tbody.querySelectorAll('tr'));
 
+        // Sort the rows based on the jersey number
         rows.sort((a, b) => {
             const aNum = Number(a.children[1].textContent); // Number column
             const bNum = Number(b.children[1].textContent);
@@ -689,6 +699,7 @@
         });
     </script>
 </body>
+<!-- End the "content" block -->
 {% endblock %}
 
 </html>
