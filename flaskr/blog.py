@@ -104,13 +104,3 @@ def roster():
 @bp.route('/schedule')
 def schedule():
     return render_template('schedule.html')
-
-@bp.route('/add_poll', methods=['POST'])
-def add_poll():
-    question = request.form.get('question')
-    option1_text = request.form.get('option1')
-    option2_text = request.form.get('option2')
-
-    new_poll = Poll(question=question)
-    db.session.add(new_poll)
-

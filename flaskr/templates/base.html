@@ -16,7 +16,7 @@
     <a href="{{ url_for('index') }}">
         <img src="{{ url_for('static', filename='Images/navbar') }}" alt="Home" width="50px" height="50px">
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
@@ -43,38 +43,45 @@
                 </li>
             {% endif %}
         </ul>
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#pollModal">Survey</button>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary ml-auto" style="background-color: #C60C30; border-color: #C60C30;" data-toggle="modal" data-target="#historyModal">
+            Patriots History
+        </button>
+
     </div>
 </nav>
 
-<!-- Poll Modal -->
-<div class="modal fade" id="pollModal" tabindex="-1" aria-labelledby="pollModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="pollModalLabel">Poll</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                {% if poll %}
-                    <form method="post" action="{{ url_for('polls.vote', id=poll.id) }}">
-                        {% for option in poll_options %}
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="poll" id="option{{ option.id }}" value="{{ option.id }}">
-                                <label class="form-check-label" for="option{{ option.id }}">
-                                    {{ option.text }}
-                                </label>
-                            </div>
-                        {% endfor %}
-                    </form>
-                {% endif %}
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </div>
+<!-- History Modal -->
+<div class="modal fade" id="historyModal" tabindex="-1" role="dialog" aria-labelledby="historyModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="historyModalLabel">New England Patriots History</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="text-center">
+            <img src="/static/Images/patriots.png" alt="New England Patriots" width="250">
         </div>
+        <p>The New England Patriots, an iconic team in the National Football League (NFL), have a storied history that dates back to their founding in 1959. Originally known as the Boston Patriots, they were a charter member of the American Football League (AFL) before the AFL-NFL merger in 1970. The team's early years in the AFL were marked by moderate success, with them reaching the AFL Championship in 1963, though they were defeated by the San Diego Chargers. In 1971, the team was renamed the New England Patriots, reflecting a broader regional identity, and in the same decade, they moved to their new home in Foxborough, Massachusetts, where they play to this day at Gillette Stadium.
+
+        <p>The 1980s and early 1990s were a period of fluctuation for the Patriots, with moments of success, including a trip to Super Bowl XX in 1986, interspersed with less successful seasons. However, the team's fortunes began to change dramatically in the late 1990s. The hiring of Bill Belichick as head coach in 2000, and the drafting of quarterback Tom Brady in the same year, marked the beginning of a golden era for the Patriots. Under Belichick's leadership and with Brady at the helm, the Patriots became a dominant force in the NFL, renowned for their strategic prowess, disciplined play, and ability to perform under pressure.</p>
+
+        <p>The early 2000s saw the Patriots secure three Super Bowl titles in four years (Super Bowl XXXVI in 2001, Super Bowl XXXVIII in 2003, and Super Bowl XXXIX in 2004), establishing them as the team of the decade. Their success wasn't limited to this period; the Patriots continued to be a formidable presence in the NFL throughout the 2010s. They reached the Super Bowl five more times in that decade, winning three times: Super Bowl XLIX in 2014, Super Bowl LI in 2016 in a historic comeback against the Atlanta Falcons, and Super Bowl LIII in 2018. </p>
+
+        <p>Tom Brady's partnership with Bill Belichick, spanning two decades, is often hailed as one of the most successful player-coach duos in NFL history. Together, they brought the Patriots six Super Bowl titles, with Brady earning four Super Bowl MVP awards. However, all eras come to an end, and in 2020, Tom Brady left the Patriots to join the Tampa Bay Buccaneers, marking the end of an epoch for the team. </p>
+
+        <p> Beyond their on-field achievements, the Patriots have also been known for their "Patriot Way" – a team-first ethos that emphasizes discipline, adaptability, and a relentless work ethic. This philosophy, instilled by Belichick, has been a cornerstone of the team's sustained success. Over the years, the Patriots have also been involved in several controversies, including "Spygate" in 2007 and "Deflategate" in 2015, but these incidents have not overshadowed their on-field achievements.</p>
+
+        <p>The New England Patriots, from their humble beginnings in the AFL to their dynastic run in the 2000s and 2010s, have etched their name as one of the most successful and celebrated franchises in NFL history. Their legacy is a testament to strategic brilliance, unparalleled teamwork, and the relentless pursuit of excellence.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
     </div>
+  </div>
 </div>
 
 <!-- Display Blog Posts -->

@@ -1,14 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Blog Posts</h1>
-<div class="container mt-5">
+<div class="d-flex justify-content-between align-items-center">
+    <h1>Blog Posts</h1>
     <!-- Create Blog Post Button -->
-    <div class="mb-3">
-        {% if g.user %}
-          <a href="/create" class="btn btn-primary">Create Blog Post</a>
-        {% endif %}
-    </div>
+    {% if g.user %}
+        <a href="/create" style="background-color: #C60C30; border-color: #C60C30;" class="btn btn-primary mr-3">Create Blog Post</a>
+    {% endif %}
+</div>
+
+
+
 
 {% for post in posts %}
   <div class="post">
